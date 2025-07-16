@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef, forwardRef } from 'react'
-import styles from 'styles/ideaGenerator.module.css'
+import { useState } from 'react'
 import TagFilter from "components/TagFilter"
 
 const Filters = ({ filters, selectedFilters, toggleFn, reset, children }) => {
@@ -26,15 +25,10 @@ const Filters = ({ filters, selectedFilters, toggleFn, reset, children }) => {
   return (
     <div className="block mb-3">
       <div className="flex">
-        <p className="font-title text-xl">Filters 
+        <p className="font-semibold text-xl">Filters 
         {
           anySelected && 
-          <>
           <span>{` (${numSelected})`}</span>
-          <button onClick={reset} className="mx-1 text-red">
-            <i className="fa-solid fa-check"></i>
-          </button>
-          </>
         }
         </p>
       </div>
