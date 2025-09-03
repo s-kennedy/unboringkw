@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef, forwardRef } from 'react'
-import styles from 'styles/ideaGenerator.module.css'
+import { useState, forwardRef } from 'react'
 import { tagEmojiDict, eventCategories } from 'utils/constants'
 import ReactModal from 'react-modal';
 
@@ -13,7 +12,7 @@ const OptionButton = forwardRef(function OptionButton(props, ref) {
 
   return (
     <button ref={ref} onClick={handleClick} className={`block text-sm px-2 py-1 m-1 ml-0 flex items-center hover:text-red`}>
-      <span className={`h-3 w-3 inline-block border-2 border-black mr-1 ${isSelected ? 'bg-check-mark bg-contain bg-no-repeat bg-center' : 'bg-white'}`} />
+      <span className={`h-3 w-3 inline-block border-2 border-black mr-1 ${isSelected ? 'bg-red' : 'bg-white'}`} />
       <span className="whitespace-nowrap">{option.name}</span>
     </button>
   )
@@ -60,7 +59,7 @@ const TagFilter = ({ filter, toggleFn, selectedOptions }) => {
       </button>
       { isOpen &&
       <div>
-        <div className={`${styles.appear}`}>
+        <div>
           {filter.options.map((option, index) => {
             const isSelected = selectedOptions.includes(option.id)
             return (
